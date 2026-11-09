@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@import "./styles/design-system/base.css";
+@import "./styles/design-system/ds.css";
+@import "./styles/design-system/themes/capyllm.css";
+@import "./styles/design-system/theme.css";
+
+/* App base reset & font settings */
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--ds-font);
+  background-color: var(--ds-canvas);
+  color: var(--ds-ink);
+  -webkit-font-smoothing: antialiased;
+}

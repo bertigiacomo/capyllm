@@ -1,0 +1,21 @@
+/*
+ * Tema CapyLLM — Accento Turchese (#5fbfb1)
+ * Ispirato dall'icona ufficiale del Capibara Nerd.
+ */
+
+:root {
+	--ds-accent: #1b8073;
+	--ds-accent-on: #ffffff;
+	--ds-accent-wash: rgb(95 191 177 / 0.18);
+	--ds-accent-line: rgb(95 191 177 / 0.45);
+	--ds-accent-turchese: #5fbfb1;
+}
+
+.dark,
+[data-theme='dark'] {
+	--ds-accent: #5fbfb1;
+	--ds-accent-on: #09231f;
+	--ds-accent-wash: rgb(95 191 177 / 0.22);
+	--ds-accent-line: rgb(95 191 177 / 0.5);
+	--ds-accent-turchese: #5fbfb1;
+}

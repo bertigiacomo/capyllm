@@ -1,0 +1,94 @@
+/*
+ * tailwind/theme.css — mappa i ruoli --ds-* sull'API di Tailwind v4.
+ *
+ * Uso (CSS globale dell'app, dopo `@import "tailwindcss"`):
+ *
+ *   @import "tailwindcss";
+ *   @import "design-system/tokens/base.css";
+ *   @import "design-system/primitives/ds.css";
+ *   @import "design-system/themes/<app>.css";
+ *   @import "design-system/tailwind/theme.css";
+ *
+ * `inline` fa sì che le utility leggano `var(--ds-*)` al momento dell'uso: il tema scuro
+ * (classe `.dark`) cambia i valori senza rigenerare niente.
+ *
+ * Utility che ne escono:
+ *   superfici  bg-canvas bg-surface bg-sunken · border-hairline border-hairline-strong
+ *   testo      text-ink text-body text-muted text-faint(solo decorativo) text-on-ink
+ *   accento    bg-accent text-accent-on bg-accent-wash text-accent ring-accent
+ *   stati      bg-ok / text-ok-text / bg-ok-wash / border-ok-line (idem warn, err)
+ *   forma      rounded-sm=2px · rounded-md/lg/xl/2xl/3xl=4px · rounded-full resta 50% (solo pallini) — ds-allow: documentazione
+ *   ombra      shadow-float (le altre shadow-* sono azzerate: niente ombre a riposo)
+ *   font       font-sans font-num font-mono
+ *   corpi      text-label text-small text-control text-copy text-data text-title text-display
+ *
+ * Testo di stato: usa `text-ok-text` / `text-warn-text` / `text-err-text` (AA).
+ * `text-ok` esiste (colore base) ma è per icone e pallini, non per testo.
+ *
+ * App con shadcn: i nomi `muted`, `accent`, `primary`… di shadcn significano altro
+ * (sfondi). Importa questo file PRIMA del blocco con gli alias shadcn: a parità di nome
+ * vince l'ultimo @theme, quindi gli alias dell'app restano com'erano.
+ */
+
+@theme inline {
+	/* ---- Colori: ruoli ---- */
+	--color-canvas: var(--ds-canvas);
+	--color-surface: var(--ds-surface);
+	--color-sunken: var(--ds-sunken);
+	--color-hairline: var(--ds-hairline);
+	--color-hairline-strong: var(--ds-hairline-strong);
+	--color-scrim: var(--ds-scrim);
+
+	--color-ink: var(--ds-ink);
+	--color-body: var(--ds-body);
+	--color-muted: var(--ds-muted);
+	--color-faint: var(--ds-faint);
+	--color-on-ink: var(--ds-on-ink);
+
+	--color-accent: var(--ds-accent);
+	--color-accent-on: var(--ds-accent-on);
+	--color-accent-wash: var(--ds-accent-wash);
+
+	--color-ok: var(--ds-ok);
+	--color-ok-text: var(--ds-ok-text);
+	--color-ok-wash: var(--ds-ok-wash);
+	--color-ok-line: var(--ds-ok-line);
+	--color-warn: var(--ds-warn);
+	--color-warn-text: var(--ds-warn-text);
+	--color-warn-wash: var(--ds-warn-wash);
+	--color-warn-line: var(--ds-warn-line);
+	--color-err: var(--ds-err);
+	--color-err-text: var(--ds-err-text);
+	--color-err-wash: var(--ds-err-wash);
+	--color-err-line: var(--ds-err-line);
+
+	/* Opzionale, per vietare la palette di Tailwind (bg-red-500…): decommenta. ds-allow: documentazione
+	   Toglie anche white/black; transparent e current restano.
+	--color-*: initial;  (da mettere PRIMA delle righe sopra) */
+
+	/* ---- Forma: 2px chip/badge, 4px tutto il resto. rounded-full non si tocca (pallini). ---- ds-allow: documentazione */
+	--radius-xs: var(--ds-r-sm);
+	--radius-sm: var(--ds-r-sm);
+	--radius-md: var(--ds-r-md);
+	--radius-lg: var(--ds-r-md);
+	--radius-xl: var(--ds-r-md);
+	--radius-2xl: var(--ds-r-md);
+	--radius-3xl: var(--ds-r-md);
+
+	/* ---- Profondità: una sola ombra ---- */
+	--shadow-*: initial;
+	--shadow-float: var(--ds-shadow-float);
+
+	/* ---- Tipografia ---- */
+	--font-sans: var(--ds-font);
+	--font-num: var(--ds-font-num);
+	--font-mono: var(--ds-font-mono);
+
+	--text-label: var(--ds-text-label);
+	--text-small: var(--ds-text-small);
+	--text-control: var(--ds-text-control);
+	--text-copy: var(--ds-text-body);
+	--text-data: var(--ds-text-data);
+	--text-title: var(--ds-text-title);
+	--text-display: var(--ds-text-display);
+}

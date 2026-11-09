@@ -1,0 +1,22 @@
+services:
+  capyllm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: capyllm
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - CAPY_MASTER_KEY=generate-a-strong-random-master-key-here
+      - CAPY_ORIGIN=http://localhost:3000
+      - CAPY_RP_ID=localhost
+      - CAPY_DB_PATH=/data/capyllm.db
+    volumes:
+      - capy_data:/data
+
+volumes:
+  capy_data:
+    driver: local
